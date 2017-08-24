@@ -74,17 +74,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EccubeConnect.cs" />
-    <Compile Include="frmCustomerList.cs">
+    <Compile Include="DbConnect\DataBaseFactory.cs" />
+    <Compile Include="DbConnect\EccubeConnect.cs" />
+    <Compile Include="frm\frmCustomerList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCustomerList.Designer.cs">
+    <Compile Include="frm\frmCustomerList.Designer.cs">
       <DependentUpon>frmCustomerList.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHome.cs">
+    <Compile Include="frm\frmHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHome.Designer.cs">
+    <Compile Include="frm\frmHome.Designer.cs">
       <DependentUpon>frmHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Customer.cs" />
@@ -93,10 +94,12 @@
     <Compile Include="PostgreSqlConnect.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmCustomerList.resx">
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\ICustomerService.cs" />
+    <EmbeddedResource Include="frm\frmCustomerList.resx">
       <DependentUpon>frmCustomerList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHome.resx">
+    <EmbeddedResource Include="frm\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
