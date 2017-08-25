@@ -1,4 +1,5 @@
 ﻿using EccubeManager.Model;
+using EccubeManager.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +14,14 @@ namespace EccubeManager
 {
     public partial class frmHome : Form
     {
+        private readonly IOrderService _OrderService;
         private frmCustomerList _CustomerForm = null;
         
         #region コンストラクタ
-        public frmHome()
+        public frmHome(IOrderService orderService)
         {
             InitializeComponent();
+            this._OrderService = orderService;
         }
         #endregion
 
@@ -56,7 +59,11 @@ namespace EccubeManager
         {
             //フォームが表示されているかの判定  
             if (this._CustomerForm == null || this._CustomerForm.IsDisposed)
-                this._CustomerForm = new frmCustomerList();
+            {
+                ICustomerService customerService = new CustomerService();
+                this._CustomerForm = new frmCustomerList(customerService);
+            }
+         
 
             if (!this._CustomerForm.Visible)
             {
@@ -74,15 +81,8 @@ namespace EccubeManager
         /// </summary>
         private void SetSales()
         {
-            using (var connection = new EccubeConnect())
-            {
-                //コネクションオープン
-                connection.ConnectionOpen();
-
-                // データ取得
-                var order = connection.Select<Order>("SELECT * FROM public.dtb_order " +
-                                                     "WHERE order_date >= now() + '-1 month' " +
-                                                     "ORDER BY order_id ASC");
+            // データ取得
+            var order = _OrderService.GetOrder();
                 // 必要な変数を宣言する
                 DateTime dtNow = DateTime.Now;
 
@@ -97,7 +97,6 @@ namespace EccubeManager
                 var orderYesterday = order.Where(r => r.order_date.Day == dtNow.AddDays(-1).Day);
                 lblAmountOfYesterday.Text = orderYesterday.Select(r => r.payment_total).Sum().ToString("C");
                 lblCountOfYesterday.Text = string.Format("{0}件", orderYesterday.Count().ToString());
-            }
         }
         #endregion
         

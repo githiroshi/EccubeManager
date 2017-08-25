@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EccubeManager.Model
 {
-    class Order
+    public class Order
     {
         public int order_id { get; set; }
         public int customer_id { get; set; }

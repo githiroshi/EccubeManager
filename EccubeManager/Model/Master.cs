@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EccubeManager.Model
 {
-    class Master
+    public class Master
     {
         public int id { get; set; }
         public string name { get; set; }

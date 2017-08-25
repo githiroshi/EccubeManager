@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EccubeManager.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,9 @@ namespace EccubeManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmHome());
+
+            IOrderService orderService = new OrderService();
+            Application.Run(new frmHome(orderService));
         }
     }
 }

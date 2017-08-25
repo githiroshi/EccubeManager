@@ -14,10 +14,12 @@ namespace EccubeManager
 {
     public partial class frmCustomerList : Form
     {
+        private readonly ICustomerService _CustomerService;
         #region コンストラクタ
-        public frmCustomerList()
+        public frmCustomerList(ICustomerService customerService)
         {
             InitializeComponent();
+            this._CustomerService = customerService;
         }
         #endregion
 
@@ -31,8 +33,7 @@ namespace EccubeManager
         /// <param name="e"></param>
         private void SearchButton_Click(object sender, System.EventArgs e)
         {
-            CustomerService _CustomerService = new CustomerService();
-
+          
             CustomerListGridView.DataSource = _CustomerService.GetCustomer();
 
             SetComboBox("sex");
