@@ -1,4 +1,5 @@
-﻿using EccubeManager.Model;
+﻿using EccubeManager.frm;
+using EccubeManager.Model;
 using EccubeManager.Services;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace EccubeManager
         private readonly IOrderService _OrderService;
         private readonly ICustomerService _CustomerService;
         private frmCustomerList _CustomerForm = null;
+        private frmOrderList _OrderForm = null;
         
         #region コンストラクタ
         public frmHome(IOrderService orderService ,ICustomerService customerService)
@@ -58,6 +60,15 @@ namespace EccubeManager
             ShowCustomerForm();
         }
 
+        /// <summary>
+        /// 受注管理ボタンをクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnOrder_Click(object sender, EventArgs e)
+        {
+            ShowOrderForm();
+        }
         #endregion
 
         #region インプリメンテーション
@@ -86,6 +97,29 @@ namespace EccubeManager
 
         }
 
+        /// <summary>
+        /// 顧客管理画面を表示
+        /// </summary>
+        private void ShowOrderForm()
+        {
+            //フォームが表示されているかの判定  
+            if (this._OrderForm == null || this._OrderForm.IsDisposed)
+            {
+                IOrderService orderService = new OrderService();
+                this._OrderForm = new frmOrderList(orderService);
+            }
+
+
+            if (!this._OrderForm.Visible)
+            {
+                this._OrderForm.Show();
+            }
+            else
+            {
+                this._OrderForm.Activate();
+            }
+
+        }
         /// <summary>
         /// 受注情報を表示
         /// </summary>
@@ -123,7 +157,8 @@ namespace EccubeManager
             lblCountOfYesterday.Text = string.Format("{0}件", orderYesterday.Count().ToString());
         }
         #endregion
-        
+
+
     }
 
 }

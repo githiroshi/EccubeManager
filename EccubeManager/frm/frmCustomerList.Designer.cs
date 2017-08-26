@@ -77,14 +77,14 @@
             this.CustomerListGridView.Location = new System.Drawing.Point(13, 141);
             this.CustomerListGridView.Name = "CustomerListGridView";
             this.CustomerListGridView.RowTemplate.Height = 21;
-            this.CustomerListGridView.Size = new System.Drawing.Size(675, 243);
+            this.CustomerListGridView.Size = new System.Drawing.Size(679, 232);
             this.CustomerListGridView.TabIndex = 1;
             // 
             // frmCustomerList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 452);
+            this.ClientSize = new System.Drawing.Size(704, 441);
             this.Controls.Add(this.CustomerListGridView);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmCustomerList";

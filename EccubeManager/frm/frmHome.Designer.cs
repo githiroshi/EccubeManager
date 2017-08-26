@@ -29,6 +29,19 @@
         private void InitializeComponent()
         {
             this.SalesGroupBox = new System.Windows.Forms.GroupBox();
+            this.YesterdayGroupBox = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblAmountOfYesterday = new System.Windows.Forms.Label();
+            this.lblCountOfYesterday = new System.Windows.Forms.Label();
+            this.TodayGroupBox = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblAmountOfToday = new System.Windows.Forms.Label();
+            this.lblCountOfToday = new System.Windows.Forms.Label();
+            this.MonthGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,26 +50,13 @@
             this.MenuGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCustomer = new System.Windows.Forms.Button();
-            this.MonthGroupBox = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblCountOfYesterday = new System.Windows.Forms.Label();
-            this.lblAmountOfYesterday = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.YesterdayGroupBox = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblCountOfToday = new System.Windows.Forms.Label();
-            this.lblAmountOfToday = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TodayGroupBox = new System.Windows.Forms.GroupBox();
             this.OrderStatusGroupBox = new System.Windows.Forms.GroupBox();
             this.OrderStatusPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.lblNewOrder = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.lblNewOrder = new System.Windows.Forms.Label();
             this.lblPendingOrder = new System.Windows.Forms.Label();
             this.lblPaidOrder = new System.Windows.Forms.Label();
             this.lblBackOrder = new System.Windows.Forms.Label();
@@ -64,15 +64,16 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.lblCustomerCount = new System.Windows.Forms.Label();
+            this.btnOrder = new System.Windows.Forms.Button();
             this.SalesGroupBox.SuspendLayout();
+            this.YesterdayGroupBox.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.TodayGroupBox.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.MonthGroupBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.MenuGroupBox.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.MonthGroupBox.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.YesterdayGroupBox.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.TodayGroupBox.SuspendLayout();
             this.OrderStatusGroupBox.SuspendLayout();
             this.OrderStatusPanel.SuspendLayout();
             this.ShopInfoGroupBox.SuspendLayout();
@@ -90,6 +91,152 @@
             this.SalesGroupBox.TabIndex = 0;
             this.SalesGroupBox.TabStop = false;
             this.SalesGroupBox.Text = "売り上げ状況";
+            // 
+            // YesterdayGroupBox
+            // 
+            this.YesterdayGroupBox.Controls.Add(this.tableLayoutPanel4);
+            this.YesterdayGroupBox.Location = new System.Drawing.Point(10, 173);
+            this.YesterdayGroupBox.Name = "YesterdayGroupBox";
+            this.YesterdayGroupBox.Size = new System.Drawing.Size(184, 71);
+            this.YesterdayGroupBox.TabIndex = 0;
+            this.YesterdayGroupBox.TabStop = false;
+            this.YesterdayGroupBox.Text = "昨日";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.label7, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label8, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.lblAmountOfYesterday, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.lblCountOfYesterday, 1, 1);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 15);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(178, 53);
+            this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(5, 7);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 12);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "昨日の売上高：";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(27, 33);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(59, 12);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "売上件数：";
+            // 
+            // lblAmountOfYesterday
+            // 
+            this.lblAmountOfYesterday.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblAmountOfYesterday.AutoSize = true;
+            this.lblAmountOfYesterday.Location = new System.Drawing.Point(92, 7);
+            this.lblAmountOfYesterday.Name = "lblAmountOfYesterday";
+            this.lblAmountOfYesterday.Size = new System.Drawing.Size(49, 12);
+            this.lblAmountOfYesterday.TabIndex = 0;
+            this.lblAmountOfYesterday.Text = "\\100,000";
+            // 
+            // lblCountOfYesterday
+            // 
+            this.lblCountOfYesterday.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCountOfYesterday.AutoSize = true;
+            this.lblCountOfYesterday.Location = new System.Drawing.Point(92, 33);
+            this.lblCountOfYesterday.Name = "lblCountOfYesterday";
+            this.lblCountOfYesterday.Size = new System.Drawing.Size(41, 12);
+            this.lblCountOfYesterday.TabIndex = 0;
+            this.lblCountOfYesterday.Text = "1000件";
+            // 
+            // TodayGroupBox
+            // 
+            this.TodayGroupBox.Controls.Add(this.tableLayoutPanel3);
+            this.TodayGroupBox.Location = new System.Drawing.Point(10, 96);
+            this.TodayGroupBox.Name = "TodayGroupBox";
+            this.TodayGroupBox.Size = new System.Drawing.Size(184, 71);
+            this.TodayGroupBox.TabIndex = 0;
+            this.TodayGroupBox.TabStop = false;
+            this.TodayGroupBox.Text = "今日";
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label4, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.lblAmountOfToday, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.lblCountOfToday, 1, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 15);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(178, 53);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "今日の売上高：";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(27, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "売上件数：";
+            // 
+            // lblAmountOfToday
+            // 
+            this.lblAmountOfToday.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblAmountOfToday.AutoSize = true;
+            this.lblAmountOfToday.Location = new System.Drawing.Point(92, 7);
+            this.lblAmountOfToday.Name = "lblAmountOfToday";
+            this.lblAmountOfToday.Size = new System.Drawing.Size(49, 12);
+            this.lblAmountOfToday.TabIndex = 0;
+            this.lblAmountOfToday.Text = "\\100,000";
+            // 
+            // lblCountOfToday
+            // 
+            this.lblCountOfToday.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCountOfToday.AutoSize = true;
+            this.lblCountOfToday.Location = new System.Drawing.Point(92, 33);
+            this.lblCountOfToday.Name = "lblCountOfToday";
+            this.lblCountOfToday.Size = new System.Drawing.Size(41, 12);
+            this.lblCountOfToday.TabIndex = 0;
+            this.lblCountOfToday.Text = "1000件";
+            // 
+            // MonthGroupBox
+            // 
+            this.MonthGroupBox.Controls.Add(this.tableLayoutPanel1);
+            this.MonthGroupBox.Location = new System.Drawing.Point(10, 19);
+            this.MonthGroupBox.Name = "MonthGroupBox";
+            this.MonthGroupBox.Size = new System.Drawing.Size(184, 71);
+            this.MonthGroupBox.TabIndex = 0;
+            this.MonthGroupBox.TabStop = false;
+            this.MonthGroupBox.Text = "今月";
             // 
             // tableLayoutPanel1
             // 
@@ -164,6 +311,7 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.btnCustomer, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnOrder, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 15);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -185,152 +333,6 @@
             this.btnCustomer.Text = "顧客管理";
             this.btnCustomer.UseVisualStyleBackColor = true;
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
-            // 
-            // MonthGroupBox
-            // 
-            this.MonthGroupBox.Controls.Add(this.tableLayoutPanel1);
-            this.MonthGroupBox.Location = new System.Drawing.Point(10, 19);
-            this.MonthGroupBox.Name = "MonthGroupBox";
-            this.MonthGroupBox.Size = new System.Drawing.Size(184, 71);
-            this.MonthGroupBox.TabIndex = 0;
-            this.MonthGroupBox.TabStop = false;
-            this.MonthGroupBox.Text = "今月";
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label8, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.lblAmountOfYesterday, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.lblCountOfYesterday, 1, 1);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 15);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(178, 53);
-            this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // lblCountOfYesterday
-            // 
-            this.lblCountOfYesterday.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCountOfYesterday.AutoSize = true;
-            this.lblCountOfYesterday.Location = new System.Drawing.Point(92, 33);
-            this.lblCountOfYesterday.Name = "lblCountOfYesterday";
-            this.lblCountOfYesterday.Size = new System.Drawing.Size(41, 12);
-            this.lblCountOfYesterday.TabIndex = 0;
-            this.lblCountOfYesterday.Text = "1000件";
-            // 
-            // lblAmountOfYesterday
-            // 
-            this.lblAmountOfYesterday.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblAmountOfYesterday.AutoSize = true;
-            this.lblAmountOfYesterday.Location = new System.Drawing.Point(92, 7);
-            this.lblAmountOfYesterday.Name = "lblAmountOfYesterday";
-            this.lblAmountOfYesterday.Size = new System.Drawing.Size(49, 12);
-            this.lblAmountOfYesterday.TabIndex = 0;
-            this.lblAmountOfYesterday.Text = "\\100,000";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(27, 33);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 12);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "売上件数：";
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 7);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 12);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "昨日の売上高：";
-            // 
-            // YesterdayGroupBox
-            // 
-            this.YesterdayGroupBox.Controls.Add(this.tableLayoutPanel4);
-            this.YesterdayGroupBox.Location = new System.Drawing.Point(10, 173);
-            this.YesterdayGroupBox.Name = "YesterdayGroupBox";
-            this.YesterdayGroupBox.Size = new System.Drawing.Size(184, 71);
-            this.YesterdayGroupBox.TabIndex = 0;
-            this.YesterdayGroupBox.TabStop = false;
-            this.YesterdayGroupBox.Text = "昨日";
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label4, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.lblAmountOfToday, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.lblCountOfToday, 1, 1);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 15);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(178, 53);
-            this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // lblCountOfToday
-            // 
-            this.lblCountOfToday.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCountOfToday.AutoSize = true;
-            this.lblCountOfToday.Location = new System.Drawing.Point(92, 33);
-            this.lblCountOfToday.Name = "lblCountOfToday";
-            this.lblCountOfToday.Size = new System.Drawing.Size(41, 12);
-            this.lblCountOfToday.TabIndex = 0;
-            this.lblCountOfToday.Text = "1000件";
-            // 
-            // lblAmountOfToday
-            // 
-            this.lblAmountOfToday.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblAmountOfToday.AutoSize = true;
-            this.lblAmountOfToday.Location = new System.Drawing.Point(92, 7);
-            this.lblAmountOfToday.Name = "lblAmountOfToday";
-            this.lblAmountOfToday.Size = new System.Drawing.Size(49, 12);
-            this.lblAmountOfToday.TabIndex = 0;
-            this.lblAmountOfToday.Text = "\\100,000";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 12);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "売上件数：";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "今日の売上高：";
-            // 
-            // TodayGroupBox
-            // 
-            this.TodayGroupBox.Controls.Add(this.tableLayoutPanel3);
-            this.TodayGroupBox.Location = new System.Drawing.Point(10, 96);
-            this.TodayGroupBox.Name = "TodayGroupBox";
-            this.TodayGroupBox.Size = new System.Drawing.Size(184, 71);
-            this.TodayGroupBox.TabIndex = 0;
-            this.TodayGroupBox.TabStop = false;
-            this.TodayGroupBox.Text = "今日";
             // 
             // OrderStatusGroupBox
             // 
@@ -386,16 +388,6 @@
             this.label16.TabIndex = 0;
             this.label16.Text = "入金待ち：";
             // 
-            // lblNewOrder
-            // 
-            this.lblNewOrder.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblNewOrder.AutoSize = true;
-            this.lblNewOrder.Location = new System.Drawing.Point(83, 6);
-            this.lblNewOrder.Name = "lblNewOrder";
-            this.lblNewOrder.Size = new System.Drawing.Size(41, 12);
-            this.lblNewOrder.TabIndex = 0;
-            this.lblNewOrder.Text = "1000件";
-            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -415,6 +407,16 @@
             this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 0;
             this.label6.Text = "取り寄せ中：";
+            // 
+            // lblNewOrder
+            // 
+            this.lblNewOrder.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblNewOrder.AutoSize = true;
+            this.lblNewOrder.Location = new System.Drawing.Point(83, 6);
+            this.lblNewOrder.Name = "lblNewOrder";
+            this.lblNewOrder.Size = new System.Drawing.Size(41, 12);
+            this.lblNewOrder.TabIndex = 0;
+            this.lblNewOrder.Text = "1000件";
             // 
             // lblPendingOrder
             // 
@@ -467,7 +469,7 @@
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 15);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(161, 35);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
@@ -491,6 +493,17 @@
             this.lblCustomerCount.TabIndex = 0;
             this.lblCustomerCount.Text = "10,000人";
             // 
+            // btnOrder
+            // 
+            this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOrder.Location = new System.Drawing.Point(3, 28);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(87, 19);
+            this.btnOrder.TabIndex = 1;
+            this.btnOrder.Text = "受注管理";
+            this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -504,17 +517,17 @@
             this.Text = "ECCUBE管理画面";
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.SalesGroupBox.ResumeLayout(false);
+            this.YesterdayGroupBox.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.TodayGroupBox.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.MonthGroupBox.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.MenuGroupBox.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.MonthGroupBox.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
-            this.YesterdayGroupBox.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.TodayGroupBox.ResumeLayout(false);
             this.OrderStatusGroupBox.ResumeLayout(false);
             this.OrderStatusPanel.ResumeLayout(false);
             this.OrderStatusPanel.PerformLayout();
@@ -563,5 +576,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblCustomerCount;
+        private System.Windows.Forms.Button btnOrder;
     }
 }
