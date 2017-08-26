@@ -19,7 +19,9 @@ namespace EccubeManager
             Application.SetCompatibleTextRenderingDefault(false);
 
             IOrderService orderService = new OrderService();
-            Application.Run(new frmHome(orderService));
+            ICustomerService customerService = new CustomerService();
+
+            Application.Run(new frmHome(orderService, customerService));
         }
     }
 }

@@ -15,13 +15,15 @@ namespace EccubeManager
     public partial class frmHome : Form
     {
         private readonly IOrderService _OrderService;
+        private readonly ICustomerService _CustomerService;
         private frmCustomerList _CustomerForm = null;
         
         #region コンストラクタ
-        public frmHome(IOrderService orderService)
+        public frmHome(IOrderService orderService ,ICustomerService customerService)
         {
             InitializeComponent();
             this._OrderService = orderService;
+            this._CustomerService = customerService;
         }
         #endregion
 
@@ -35,6 +37,10 @@ namespace EccubeManager
         {
             //売り上げ状況をセット
             SetSales();
+            //会員数をセット
+            var customer = _CustomerService.GetCustomer();
+            lblCustomerCount.Text = customer.Count.ToString("###,##0人");
+
 
         }
 
@@ -81,22 +87,23 @@ namespace EccubeManager
         /// </summary>
         private void SetSales()
         {
+            // 必要な変数を宣言する
+            DateTime dtNow = DateTime.Now;
+
             // データ取得
             var order = _OrderService.GetOrder();
-                // 必要な変数を宣言する
-                DateTime dtNow = DateTime.Now;
 
-                var orderMonth = order.Where(r => r.order_date.Month == dtNow.Month);
-                lblAmountOfMonth.Text = orderMonth.Select(r => r.payment_total).Sum().ToString("C");
-                lblCountOfMonth.Text = string.Format("{0}件", orderMonth.Count().ToString());
+            var orderMonth = order.Where(r => r.order_date.Month == dtNow.Month);
+            lblAmountOfMonth.Text = orderMonth.Select(r => r.payment_total).Sum().ToString("C");
+            lblCountOfMonth.Text = string.Format("{0}件", orderMonth.Count().ToString());
 
-                var orderToday = order.Where(r => r.order_date.Day == dtNow.Day);
-                lblAmountOfToday.Text = orderToday.Select(r => r.payment_total).Sum().ToString("C");
-                lblCountOfToday.Text = string.Format("{0}件", orderToday.Count().ToString());
+            var orderToday = order.Where(r => r.order_date.Day == dtNow.Day);
+            lblAmountOfToday.Text = orderToday.Select(r => r.payment_total).Sum().ToString("C");
+            lblCountOfToday.Text = string.Format("{0}件", orderToday.Count().ToString());
 
-                var orderYesterday = order.Where(r => r.order_date.Day == dtNow.AddDays(-1).Day);
-                lblAmountOfYesterday.Text = orderYesterday.Select(r => r.payment_total).Sum().ToString("C");
-                lblCountOfYesterday.Text = string.Format("{0}件", orderYesterday.Count().ToString());
+            var orderYesterday = order.Where(r => r.order_date.Day == dtNow.AddDays(-1).Day);
+            lblAmountOfYesterday.Text = orderYesterday.Select(r => r.payment_total).Sum().ToString("C");
+            lblCountOfYesterday.Text = string.Format("{0}件", orderYesterday.Count().ToString());
         }
         #endregion
         
