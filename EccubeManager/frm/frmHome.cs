@@ -35,8 +35,12 @@ namespace EccubeManager
         /// <param name="e"></param>
         private void frmHome_Load(object sender, EventArgs e)
         {
+            // 受注データを取得
+            var order = _OrderService.GetOrder();
+            //受注状況をセット
+            SetOrderStatus(order);
             //売り上げ状況をセット
-            SetSales();
+            SetSales(order);
             //会員数をセット
             var customer = _CustomerService.GetCustomer();
             lblCustomerCount.Text = customer.Count.ToString("###,##0人");
@@ -83,16 +87,29 @@ namespace EccubeManager
         }
 
         /// <summary>
-        /// 売上情報を取得表示
+        /// 受注情報を表示
         /// </summary>
-        private void SetSales()
+        /// <param name="order"></param>
+        private void SetOrderStatus(IList<Order> order)
+        {
+            //新規受付
+            lblNewOrder.Text = order.Where(r => r.status == 1).Count().ToString("###,##0件");
+            //入金待ち
+            lblPendingOrder.Text = order.Where(r => r.status == 2).Count().ToString("###,##0件");
+            //入金済み
+            lblPaidOrder.Text = order.Where(r => r.status == 3).Count().ToString("###,##0件");
+            //取り寄せ中
+            lblBackOrder.Text = order.Where(r => r.status == 5).Count().ToString("###,##0件");
+
+        }
+        /// <summary>
+        /// 売上情報を表示
+        /// </summary>
+        private void SetSales(IList<Order> order)
         {
             // 必要な変数を宣言する
             DateTime dtNow = DateTime.Now;
-
-            // データ取得
-            var order = _OrderService.GetOrder();
-
+            
             var orderMonth = order.Where(r => r.order_date.Month == dtNow.Month);
             lblAmountOfMonth.Text = orderMonth.Select(r => r.payment_total).Sum().ToString("C");
             lblCountOfMonth.Text = string.Format("{0}件", orderMonth.Count().ToString());

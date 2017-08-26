@@ -36,6 +36,7 @@ namespace EccubeManager.Model
         public string payment_method { get; set; }
         public string note { get; set; }
         public DateTime order_date { get; set; }
+        public decimal status { get; set; }
 
     }
 }
