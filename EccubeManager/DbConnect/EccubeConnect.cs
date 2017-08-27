@@ -123,7 +123,7 @@ namespace EccubeManager
         /// </summary>
         public List<t> SelectMaster<t>(string tableName) where t : class
         {
-            return Connection.Query<t>(string.Format("SELECT * FROM public.mtb_{0}", tableName)).ToList();
+            return Connection.Query<t>(string.Format("SELECT id,name FROM public.mtb_{0}", tableName)).ToList();
         }
 
         /// <summary>

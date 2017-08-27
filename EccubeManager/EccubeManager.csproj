@@ -74,6 +74,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ComboBoxSetter.cs" />
+    <Compile Include="Common\MasterTableManager.cs" />
     <Compile Include="DbConnect\DataBaseFactory.cs" />
     <Compile Include="DbConnect\EccubeConnect.cs" />
     <Compile Include="frm\frmCustomerList.cs">
@@ -124,6 +126,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\EccubeManager.Model.Order.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -9,12 +9,14 @@ using Dapper;
 using System.Configuration;
 using EccubeManager.Model;
 using EccubeManager.Services;
+using EccubeManager.Common;
 
 namespace EccubeManager
 {
     public partial class frmCustomerList : Form
     {
         private readonly ICustomerService _CustomerService;
+
         #region コンストラクタ
         public frmCustomerList(ICustomerService customerService)
         {
@@ -33,48 +35,19 @@ namespace EccubeManager
         /// <param name="e"></param>
         private void SearchButton_Click(object sender, System.EventArgs e)
         {
-          
+            //データを取得
             CustomerListGridView.DataSource = _CustomerService.GetCustomer();
 
-            SetComboBox("sex");
-            SetComboBox("job");
-            SetComboBox("pref");
+            //一覧のコンボボックスを生成
+            ComboBoxSetter.SetComboBox(CustomerListGridView,"sex");
+            ComboBoxSetter.SetComboBox(CustomerListGridView,"job");
+            ComboBoxSetter.SetComboBox(CustomerListGridView,"pref");
         }
 
         #endregion
 
         #region インプリメンテーション
-
-        private void SetComboBox(string tableName)
-        {
-            using (var connection = new EccubeConnect())
-            {
-                //コネクションオープン
-                connection.ConnectionOpen();
-
-                //DataGridViewComboBoxColumnを作成
-                DataGridViewComboBoxColumn column = new DataGridViewComboBoxColumn();
-                //表示する列の名前を設定する
-                column.DataPropertyName = CustomerListGridView.Columns[tableName].DataPropertyName;
-                //DataGridViewComboBoxColumnのDataSourceを設定
-                var master = connection.SelectMaster<Master>(tableName);
-
-                column.DataSource = master;
-                //実際の値が"id"列、表示するテキストが"name"列とする
-                column.ValueMember = "id";
-                column.DisplayMember = "name";
-                //ReadOnlyに変更
-                column.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
-                column.ReadOnly = true;
-
-                //現在の列が存在している位置に挿入する
-                CustomerListGridView.Columns.Insert(CustomerListGridView.Columns[tableName].Index, column);
-                //今までの列を削除する
-                CustomerListGridView.Columns.Remove(tableName);
-                //挿入した列の名前を変更する
-                column.Name = tableName;
-            }
-        }
+        
         #endregion
     }
 }

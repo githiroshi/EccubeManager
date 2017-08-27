@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Se = new System.Windows.Forms.Button();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.CustomerListGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CustomerListGridView)).BeginInit();
@@ -44,27 +44,27 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Controls.Add(this.Se, 0, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 13);
+            this.tableLayoutPanel1.Controls.Add(this.SearchButton, 0, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(675, 98);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(679, 98);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // Se
+            // SearchButton
             // 
-            this.Se.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Se.Location = new System.Drawing.Point(3, 75);
-            this.Se.Name = "Se";
-            this.Se.Size = new System.Drawing.Size(106, 20);
-            this.Se.TabIndex = 0;
-            this.Se.Text = "検索";
-            this.Se.UseVisualStyleBackColor = true;
-            this.Se.Click += new System.EventHandler(this.SearchButton_Click);
+            this.SearchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchButton.Location = new System.Drawing.Point(3, 75);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(107, 20);
+            this.SearchButton.TabIndex = 0;
+            this.SearchButton.Text = "検索";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // CustomerListGridView
             // 
@@ -74,10 +74,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomerListGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CustomerListGridView.Location = new System.Drawing.Point(13, 141);
+            this.CustomerListGridView.Location = new System.Drawing.Point(13, 116);
             this.CustomerListGridView.Name = "CustomerListGridView";
             this.CustomerListGridView.RowTemplate.Height = 21;
-            this.CustomerListGridView.Size = new System.Drawing.Size(679, 232);
+            this.CustomerListGridView.Size = new System.Drawing.Size(679, 257);
             this.CustomerListGridView.TabIndex = 1;
             // 
             // frmCustomerList
@@ -99,7 +99,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView CustomerListGridView;
-        private System.Windows.Forms.Button Se;
+        private System.Windows.Forms.Button SearchButton;
     }
 }
 
