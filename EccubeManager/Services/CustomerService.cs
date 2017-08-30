@@ -20,7 +20,7 @@ namespace EccubeManager.Services
                 connection.ConnectionOpen();
 
                 // データ取得
-                customers = connection.Select<Customer>("SELECT * FROM public.dtb_customer");
+                customers = connection.Select<Customer>("SELECT * FROM dtb_customer");
 
                 return customers;
             }

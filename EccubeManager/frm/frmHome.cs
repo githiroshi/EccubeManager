@@ -46,8 +46,20 @@ namespace EccubeManager
             //会員数をセット
             var customer = _CustomerService.GetCustomer();
             lblCustomerCount.Text = customer.Count.ToString("###,##0人");
+            
+        }
 
-
+        /// <summary>
+        /// 設定ボタンをクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            //設定画面を開く
+            Form frmSettings = new frmSettings();
+            frmSettings.ShowDialog();
+            frmSettings.Dispose();
         }
 
         /// <summary>
@@ -156,6 +168,7 @@ namespace EccubeManager
             lblAmountOfYesterday.Text = orderYesterday.Select(r => r.payment_total).Sum().ToString("C");
             lblCountOfYesterday.Text = string.Format("{0}件", orderYesterday.Count().ToString());
         }
+
         #endregion
 
 

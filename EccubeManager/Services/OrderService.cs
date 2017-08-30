@@ -19,7 +19,7 @@ namespace EccubeManager.Services
                 connection.ConnectionOpen();
 
                 // データ取得
-                order = connection.Select<Order>("SELECT * FROM public.dtb_order " +
+                order = connection.Select<Order>("SELECT * FROM dtb_order " +
                                                  "WHERE order_date >= now() + '-1 month' " +
                                                  "ORDER BY order_id ASC");
 

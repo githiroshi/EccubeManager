@@ -50,6 +50,7 @@
             this.MenuGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCustomer = new System.Windows.Forms.Button();
+            this.btnOrder = new System.Windows.Forms.Button();
             this.OrderStatusGroupBox = new System.Windows.Forms.GroupBox();
             this.OrderStatusPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
@@ -64,7 +65,7 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.lblCustomerCount = new System.Windows.Forms.Label();
-            this.btnOrder = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.SalesGroupBox.SuspendLayout();
             this.YesterdayGroupBox.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -334,6 +335,17 @@
             this.btnCustomer.UseVisualStyleBackColor = true;
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
+            // btnOrder
+            // 
+            this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOrder.Location = new System.Drawing.Point(3, 28);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(87, 19);
+            this.btnOrder.TabIndex = 1;
+            this.btnOrder.Text = "受注管理";
+            this.btnOrder.UseVisualStyleBackColor = true;
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            // 
             // OrderStatusGroupBox
             // 
             this.OrderStatusGroupBox.Controls.Add(this.OrderStatusPanel);
@@ -493,22 +505,22 @@
             this.lblCustomerCount.TabIndex = 0;
             this.lblCustomerCount.Text = "10,000人";
             // 
-            // btnOrder
+            // btnSettings
             // 
-            this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOrder.Location = new System.Drawing.Point(3, 28);
-            this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(87, 19);
-            this.btnOrder.TabIndex = 1;
-            this.btnOrder.Text = "受注管理";
-            this.btnOrder.UseVisualStyleBackColor = true;
-            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            this.btnSettings.Location = new System.Drawing.Point(13, 246);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(75, 23);
+            this.btnSettings.TabIndex = 2;
+            this.btnSettings.Text = "設定";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 406);
+            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.MenuGroupBox);
             this.Controls.Add(this.ShopInfoGroupBox);
             this.Controls.Add(this.OrderStatusGroupBox);
@@ -577,5 +589,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblCustomerCount;
         private System.Windows.Forms.Button btnOrder;
+        private System.Windows.Forms.Button btnSettings;
     }
 }
