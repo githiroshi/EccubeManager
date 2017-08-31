@@ -17,9 +17,24 @@ namespace EccubeManager
             switch (dbName)
             {
                 case "Postgres":
-                    return  new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PostgreSqlConnection"].ConnectionString);
+                    var PostgreSqlConnection = string.Format("Server={0};Port={1};Database={2};UserId={3};Password={4};",
+                                                Properties.Settings.Default.PostgresServer
+                                                , Properties.Settings.Default.PostgresPort
+                                                , Properties.Settings.Default.PostgresDatabase
+                                                , Properties.Settings.Default.PostgresUserId
+                                                , Properties.Settings.Default.PostgresPassword);
+
+                    return  new NpgsqlConnection(PostgreSqlConnection);
+
                 case "MySQL":
-                    return new MySqlConnection(ConfigurationManager.ConnectionStrings["MySQLConnection"].ConnectionString);
+                    var MySQLConnection = string.Format("Server={0};Port={1};Database={2};UserId={3};Password={4};",
+                                                Properties.Settings.Default.MysqlServer
+                                                , Properties.Settings.Default.MysqlPort
+                                                , Properties.Settings.Default.MysqlDatabase
+                                                , Properties.Settings.Default.MysqlUserId
+                                                , Properties.Settings.Default.MysqlPassword);
+
+                    return new MySqlConnection(MySQLConnection);
             }
             return new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PostgreSqlConnection"].ConnectionString);
 

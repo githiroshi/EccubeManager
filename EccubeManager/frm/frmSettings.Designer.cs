@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnRegist = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,6 +43,8 @@
             this.txtDatabase = new System.Windows.Forms.TextBox();
             this.txtUserId = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.btnRegist = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -77,25 +77,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(259, 150);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // btnRegist
-            // 
-            this.btnRegist.Location = new System.Drawing.Point(13, 179);
-            this.btnRegist.Name = "btnRegist";
-            this.btnRegist.Size = new System.Drawing.Size(75, 50);
-            this.btnRegist.TabIndex = 1;
-            this.btnRegist.Text = "登録";
-            this.btnRegist.UseVisualStyleBackColor = true;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(197, 179);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 50);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "閉じる";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label1
             // 
@@ -179,6 +160,7 @@
             this.btnPostgres.TabStop = true;
             this.btnPostgres.Text = "Postgresql";
             this.btnPostgres.UseVisualStyleBackColor = true;
+            this.btnPostgres.CheckedChanged += new System.EventHandler(this.btnPostgres_CheckedChanged);
             // 
             // btnMysql
             // 
@@ -231,6 +213,26 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(156, 19);
             this.txtPassword.TabIndex = 2;
+            // 
+            // btnRegist
+            // 
+            this.btnRegist.Location = new System.Drawing.Point(13, 179);
+            this.btnRegist.Name = "btnRegist";
+            this.btnRegist.Size = new System.Drawing.Size(75, 50);
+            this.btnRegist.TabIndex = 1;
+            this.btnRegist.Text = "登録";
+            this.btnRegist.UseVisualStyleBackColor = true;
+            this.btnRegist.Click += new System.EventHandler(this.btnRegist_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(197, 179);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 50);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.Text = "閉じる";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmSettings
             // 

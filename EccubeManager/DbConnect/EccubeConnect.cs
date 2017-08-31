@@ -44,7 +44,15 @@ namespace EccubeManager
         public EccubeConnect()
         {
             var dbFactory = new DataBaseFactory();
-            Connection = dbFactory.DbFactory("MySQL");
+
+            //接続先を設定
+            var DbString = "MySQL";
+            if (Properties.Settings.Default.IsPostgres == true)
+            {
+                DbString = "Postgres";
+            }       
+             //DB接続
+            Connection = dbFactory.DbFactory(DbString);
         }
         #endregion
 

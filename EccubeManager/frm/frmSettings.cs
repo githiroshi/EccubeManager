@@ -12,6 +12,10 @@ namespace EccubeManager.frm
 {
     public partial class frmSettings : Form
     {
+
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public frmSettings()
         {
             InitializeComponent();
@@ -24,34 +28,23 @@ namespace EccubeManager.frm
         /// <param name="e"></param>
         private void frmSettings_Load(object sender, EventArgs e)
         {
-            //接続先情報をセット
+            //ラジオボタンを初期化
             if (Properties.Settings.Default.IsPostgres)
             {
                 btnPostgres.Checked = true;
-
-                txtServer.Text = Properties.Settings.Default.PostgresServer;
-                txtServer.Text = Properties.Settings.Default.PostgresPort;
-                txtServer.Text = Properties.Settings.Default.PostgresDatabase;
-                txtServer.Text = Properties.Settings.Default.PostgresUserId;
-                txtServer.Text = Properties.Settings.Default.PostgresPassword;
             }
             else
             {
                 btnMysql.Checked = true;
-                txtServer.Text = Properties.Settings.Default.MysqlServer;
-                txtServer.Text = Properties.Settings.Default.MysqlPort;
-                txtServer.Text = Properties.Settings.Default.MysqlDatabase;
-                txtServer.Text = Properties.Settings.Default.MysqlUserId;
-                txtServer.Text = Properties.Settings.Default.MysqlPassword;
             }
 
-
-
+            //接続情報を取得
+            GetSettings();
 
         }
 
         /// <summary>
-        /// 
+        /// 閉じるをクリック
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -59,6 +52,85 @@ namespace EccubeManager.frm
         {
             this.Close();
         }
+
+        /// <summary>
+        /// 登録ボタンをクリック
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRegist_Click(object sender, EventArgs e)
+        {
+            //メッセージボックスを表示する
+            DialogResult result = MessageBox.Show("設定を保存しますがよろしいですか？", "質問", MessageBoxButtons.YesNo);
+
+            //何が選択されたか調べる
+            if (result == DialogResult.Yes)
+            {
+                //接続情報を取得
+                SetSettings();
+            }
+        }
+
+        private void btnPostgres_CheckedChanged(object sender, EventArgs e)
+        {
+            //接続情報を取得
+            GetSettings();
+        }
+
+        #region インプリメンテーション
+        /// <summary>
+        /// 接続情報を取得
+        /// </summary>
+        private void GetSettings()
+        {
+            if (btnPostgres.Checked)
+            {
+                btnPostgres.Checked = true;
+                txtServer.Text = Properties.Settings.Default.PostgresServer;
+                txtPort.Text = Properties.Settings.Default.PostgresPort;
+                txtDatabase.Text = Properties.Settings.Default.PostgresDatabase;
+                txtUserId.Text = Properties.Settings.Default.PostgresUserId;
+                txtPassword.Text = Properties.Settings.Default.PostgresPassword;
+            }
+            else
+            {
+                btnMysql.Checked = true;
+                txtServer.Text = Properties.Settings.Default.MysqlServer;
+                txtPort.Text = Properties.Settings.Default.MysqlPort;
+                txtDatabase.Text = Properties.Settings.Default.MysqlDatabase;
+                txtUserId.Text = Properties.Settings.Default.MysqlUserId;
+                txtPassword.Text = Properties.Settings.Default.MysqlPassword;
+            }
+        }
+
+        /// <summary>
+        /// 接続情報を取得
+        /// </summary>
+        private void SetSettings()
+        {
+            if (btnPostgres.Checked)
+            {
+                Properties.Settings.Default.IsPostgres = true;
+                Properties.Settings.Default.PostgresServer = txtServer.Text;
+                Properties.Settings.Default.PostgresPort = txtPort.Text;
+                Properties.Settings.Default.PostgresDatabase = txtDatabase.Text;
+                Properties.Settings.Default.PostgresUserId = txtUserId.Text;
+                Properties.Settings.Default.PostgresPassword = txtPassword.Text;
+            }
+            else
+            {
+                Properties.Settings.Default.IsPostgres = false;
+                Properties.Settings.Default.MysqlServer = txtServer.Text;
+                Properties.Settings.Default.MysqlPort = txtPort.Text;
+                Properties.Settings.Default.MysqlDatabase = txtDatabase.Text;
+                Properties.Settings.Default.MysqlUserId = txtUserId.Text;
+                Properties.Settings.Default.MysqlPassword = txtPassword.Text;
+            }
+
+            //アプリケーションの設定を保存する
+            Properties.Settings.Default.Save();
+        }
+        #endregion
 
 
     }
