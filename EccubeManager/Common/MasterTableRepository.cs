@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EccubeManager.Common
 {
-    public class MasterTableManager
+    public class MasterTableRepository
     {
         public static IList<Master> GetMasterTable(string tableName)
         {

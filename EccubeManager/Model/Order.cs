@@ -10,8 +10,7 @@ namespace EccubeManager.Model
     {
         [System.ComponentModel.DisplayName("受注番号")]
         public int order_id { get; set; }
-
-
+        
         [System.ComponentModel.DisplayName("受注状況")]
         public int status { get; set; }
 
@@ -36,10 +35,10 @@ namespace EccubeManager.Model
         [System.ComponentModel.DisplayName("氏名2")]
         public string order_name02 { get; set; }
 
-        [System.ComponentModel.DisplayName("氏名1(カナ)")]
+        [System.ComponentModel.DisplayName("カナ1")]
         public string order_kana01 { get; set; }
 
-        [System.ComponentModel.DisplayName("氏名2(カナ)")]
+        [System.ComponentModel.DisplayName("カナ2")]
         public string order_kana02 { get; set; }
 
         [System.ComponentModel.DisplayName("メール")]

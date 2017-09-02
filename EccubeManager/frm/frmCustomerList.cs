@@ -37,11 +37,6 @@ namespace EccubeManager
         {
             //データを取得
             CustomerListGridView.DataSource = _CustomerService.GetCustomer();
-
-            //一覧のコンボボックスを生成
-            ComboBoxSetter.SetComboBox(CustomerListGridView,"sex");
-            ComboBoxSetter.SetComboBox(CustomerListGridView,"job");
-            ComboBoxSetter.SetComboBox(CustomerListGridView,"pref");
         }
 
         #endregion

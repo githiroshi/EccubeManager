@@ -36,7 +36,9 @@ namespace EccubeManager.frm
         /// <param name="e"></param>
         private void frmOrderList_Load(object sender, EventArgs e)
         {
-
+            statusBindingSource.DataSource = MasterTableRepository.GetMasterTable("order_status");
+            prefBindingSource.DataSource = MasterTableRepository.GetMasterTable("pref");
+            jobBindingSource.DataSource = MasterTableRepository.GetMasterTable("job");
         }
 
         /// <summary>
@@ -46,12 +48,9 @@ namespace EccubeManager.frm
         /// <param name="e"></param>
         private async void SearchButton_Click(object sender, EventArgs e)
         {
-            OrderListGridView.DataSource = await _OrderService.GetOrderAsync();
-
-            ////一覧のコンボボックスを生成
-            //ComboBoxSetter.SetComboBox(OrderListGridView, "order_job");
-            //ComboBoxSetter.SetComboBox(OrderListGridView, "order_pref");
-            //ComboBoxSetter.SetComboBox(OrderListGridView, "status");
+            //受注情報を非同期で取得
+            orderBindingSource.DataSource = await _OrderService.GetOrderAsync();
+            OrderListGridView.DataSource = orderBindingSource;
         }
 
         #endregion

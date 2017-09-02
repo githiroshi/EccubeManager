@@ -41,7 +41,8 @@ namespace EccubeManager
         /// <param name="e"></param>
         private async void frmHome_Load(object sender, EventArgs e)
         {
-           await SetCurrentInfo();
+            //現在の状況を表示
+            await SetCurrentInfo();
         }
 
         /// <summary>
@@ -157,19 +158,17 @@ namespace EccubeManager
         /// <summary>
         /// 売上情報を表示
         /// </summary>
-        private void SetSales(IList<Order> order)
+        private void SetSales(IList<Order> order, DateTime dtNow)
         {
-            // 必要な変数を宣言する
-            DateTime dtNow = DateTime.Now;
-            
+         　 //今月の売上を表示
             var orderMonth = order.Where(r => r.order_date.Month == dtNow.Month);
             lblAmountOfMonth.Text = orderMonth.Select(r => r.payment_total).Sum().ToString("C");
             lblCountOfMonth.Text = string.Format("{0}件", orderMonth.Count().ToString());
-
+            //今日の売上を表示
             var orderToday = order.Where(r => r.order_date.Day == dtNow.Day);
             lblAmountOfToday.Text = orderToday.Select(r => r.payment_total).Sum().ToString("C");
             lblCountOfToday.Text = string.Format("{0}件", orderToday.Count().ToString());
-
+            //昨日の売上を表示
             var orderYesterday = order.Where(r => r.order_date.Day == dtNow.AddDays(-1).Day);
             lblAmountOfYesterday.Text = orderYesterday.Select(r => r.payment_total).Sum().ToString("C");
             lblCountOfYesterday.Text = string.Format("{0}件", orderYesterday.Count().ToString());
@@ -181,17 +180,21 @@ namespace EccubeManager
         /// <returns></returns>
         private async Task SetCurrentInfo()
         {
+            //現在時刻をセット
+            DateTime dtNow = DateTime.Now;
+
             // 受注データを取得
             var order = await _OrderService.GetOrderAsync();
             //受注状況をセット
             SetOrderStatus(order);
             //売り上げ状況をセット
-            SetSales(order);
+            SetSales(order, dtNow);
             //会員数をセット
             var customer = _CustomerService.GetCustomer();
             lblCustomerCount.Text = customer.Count.ToString("###,##0人");
 
-            lblUpdateDate.Text = DateTime.Now.ToLongTimeString();
+            //更新時刻を表示
+            lblUpdateTime.Text = string.Format("更新時刻:{0}", dtNow.ToLongTimeString());
         }
         #endregion
 
