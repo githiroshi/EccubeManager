@@ -9,6 +9,6 @@ namespace EccubeManager.Services
 {
     public interface IOrderService
     {
-        IList<Order> GetOrder();
+      Task<IList<Order>> GetOrderAsync();
     }
 }

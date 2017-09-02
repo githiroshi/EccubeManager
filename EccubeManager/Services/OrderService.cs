@@ -9,23 +9,28 @@ namespace EccubeManager.Services
 {
     public class OrderService : IOrderService
     {
-        public IList<Order> GetOrder()
+        public async Task<IList<Order>> GetOrderAsync()
         {
             IList<Order> order = new List<Order>();
 
-            using (var connection = new EccubeConnect())
+            var task = await Task.Run(() =>
             {
-                //コネクションオープン
-                connection.ConnectionOpen();
+                using (var connection = new EccubeConnect())
+                {
+                    //コネクションオープン
+                    connection.ConnectionOpen();
 
-                // データ取得
-                order = connection.Select<Order>("SELECT * FROM dtb_order " +
-                                                 "WHERE order_date >= now() + '-1 month' " +
-                                                 "ORDER BY order_id ASC");
+                    // データ取得
+                    order = connection.Select<Order>("SELECT * FROM dtb_order " +
+                                                     "WHERE order_date >= now() + '-1 month' " +
+                                                     "ORDER BY order_id ASC");
 
-                return order;
+                    return true;
 
-            }
+                }               
+            });
+
+            return order;
         }
     }
 }

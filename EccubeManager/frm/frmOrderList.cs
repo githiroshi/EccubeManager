@@ -44,14 +44,14 @@ namespace EccubeManager.frm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void SearchButton_Click(object sender, EventArgs e)
+        private async void SearchButton_Click(object sender, EventArgs e)
         {
-            OrderListGridView.DataSource = _OrderService.GetOrder();
+            OrderListGridView.DataSource = await _OrderService.GetOrderAsync();
 
-            //一覧のコンボボックスを生成
-            ComboBoxSetter.SetComboBox(OrderListGridView, "order_job");
-            ComboBoxSetter.SetComboBox(OrderListGridView, "order_pref");
-            ComboBoxSetter.SetComboBox(OrderListGridView, "status");
+            ////一覧のコンボボックスを生成
+            //ComboBoxSetter.SetComboBox(OrderListGridView, "order_job");
+            //ComboBoxSetter.SetComboBox(OrderListGridView, "order_pref");
+            //ComboBoxSetter.SetComboBox(OrderListGridView, "status");
         }
 
         #endregion

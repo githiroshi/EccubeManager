@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.SalesGroupBox = new System.Windows.Forms.GroupBox();
             this.YesterdayGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -66,6 +67,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblCustomerCount = new System.Windows.Forms.Label();
             this.btnSettings = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblUpdateDate = new System.Windows.Forms.Label();
             this.SalesGroupBox.SuspendLayout();
             this.YesterdayGroupBox.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -79,6 +84,7 @@
             this.OrderStatusPanel.SuspendLayout();
             this.ShopInfoGroupBox.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // SalesGroupBox
@@ -86,7 +92,7 @@
             this.SalesGroupBox.Controls.Add(this.YesterdayGroupBox);
             this.SalesGroupBox.Controls.Add(this.TodayGroupBox);
             this.SalesGroupBox.Controls.Add(this.MonthGroupBox);
-            this.SalesGroupBox.Location = new System.Drawing.Point(307, 13);
+            this.SalesGroupBox.Location = new System.Drawing.Point(303, 56);
             this.SalesGroupBox.Name = "SalesGroupBox";
             this.SalesGroupBox.Size = new System.Drawing.Size(208, 257);
             this.SalesGroupBox.TabIndex = 0;
@@ -349,7 +355,7 @@
             // OrderStatusGroupBox
             // 
             this.OrderStatusGroupBox.Controls.Add(this.OrderStatusPanel);
-            this.OrderStatusGroupBox.Location = new System.Drawing.Point(134, 13);
+            this.OrderStatusGroupBox.Location = new System.Drawing.Point(130, 56);
             this.OrderStatusGroupBox.Name = "OrderStatusGroupBox";
             this.OrderStatusGroupBox.Size = new System.Drawing.Size(167, 121);
             this.OrderStatusGroupBox.TabIndex = 0;
@@ -463,7 +469,7 @@
             // ShopInfoGroupBox
             // 
             this.ShopInfoGroupBox.Controls.Add(this.tableLayoutPanel5);
-            this.ShopInfoGroupBox.Location = new System.Drawing.Point(521, 13);
+            this.ShopInfoGroupBox.Location = new System.Drawing.Point(517, 56);
             this.ShopInfoGroupBox.Name = "ShopInfoGroupBox";
             this.ShopInfoGroupBox.Size = new System.Drawing.Size(167, 53);
             this.ShopInfoGroupBox.TabIndex = 0;
@@ -515,11 +521,50 @@
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.57143F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.42857F));
+            this.tableLayoutPanel6.Controls.Add(this.label10, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.lblUpdateDate, 1, 0);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(133, 13);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(269, 24);
+            this.tableLayoutPanel6.TabIndex = 3;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(18, 6);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(55, 12);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "更新時刻:";
+            // 
+            // lblUpdateDate
+            // 
+            this.lblUpdateDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblUpdateDate.AutoSize = true;
+            this.lblUpdateDate.Location = new System.Drawing.Point(111, 6);
+            this.lblUpdateDate.Name = "lblUpdateDate";
+            this.lblUpdateDate.Size = new System.Drawing.Size(89, 12);
+            this.lblUpdateDate.TabIndex = 1;
+            this.lblUpdateDate.Text = "****年**月**日";
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 406);
+            this.Controls.Add(this.tableLayoutPanel6);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.MenuGroupBox);
             this.Controls.Add(this.ShopInfoGroupBox);
@@ -546,6 +591,8 @@
             this.ShopInfoGroupBox.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -590,5 +637,9 @@
         private System.Windows.Forms.Label lblCustomerCount;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblUpdateDate;
     }
 }

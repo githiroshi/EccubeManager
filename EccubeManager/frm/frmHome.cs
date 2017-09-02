@@ -24,6 +24,10 @@ namespace EccubeManager
         public frmHome(IOrderService orderService ,ICustomerService customerService)
         {
             InitializeComponent();
+
+            timer1.Interval = 10000;
+            timer1.Enabled = true; // timer.Start()と同じ
+
             this._OrderService = orderService;
             this._CustomerService = customerService;
         }
@@ -35,18 +39,9 @@ namespace EccubeManager
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void frmHome_Load(object sender, EventArgs e)
+        private async void frmHome_Load(object sender, EventArgs e)
         {
-            // 受注データを取得
-            var order = _OrderService.GetOrder();
-            //受注状況をセット
-            SetOrderStatus(order);
-            //売り上げ状況をセット
-            SetSales(order);
-            //会員数をセット
-            var customer = _CustomerService.GetCustomer();
-            lblCustomerCount.Text = customer.Count.ToString("###,##0人");
-            
+           await SetCurrentInfo();
         }
 
         /// <summary>
@@ -81,6 +76,17 @@ namespace EccubeManager
         {
             ShowOrderForm();
         }
+
+        /// <summary>
+        /// タイマー処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void timer1_Tick(object sender, EventArgs e)
+        {
+            await this.SetCurrentInfo();
+        }
+
         #endregion
 
         #region インプリメンテーション
@@ -169,7 +175,26 @@ namespace EccubeManager
             lblCountOfYesterday.Text = string.Format("{0}件", orderYesterday.Count().ToString());
         }
 
+        /// <summary>
+        /// 現在の受注、会員情報を表示
+        /// </summary>
+        /// <returns></returns>
+        private async Task SetCurrentInfo()
+        {
+            // 受注データを取得
+            var order = await _OrderService.GetOrderAsync();
+            //受注状況をセット
+            SetOrderStatus(order);
+            //売り上げ状況をセット
+            SetSales(order);
+            //会員数をセット
+            var customer = _CustomerService.GetCustomer();
+            lblCustomerCount.Text = customer.Count.ToString("###,##0人");
+
+            lblUpdateDate.Text = DateTime.Now.ToLongTimeString();
+        }
         #endregion
+
 
 
     }
