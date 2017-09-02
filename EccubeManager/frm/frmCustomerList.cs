@@ -27,6 +27,17 @@ namespace EccubeManager
 
 
         #region イベントハンドラ
+        /// <summary>
+        /// フォームをロード
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void frmCustomerList_Load(object sender, EventArgs e)
+        {
+            sexBindingSource.DataSource = MasterTableRepository.GetMasterTable("sex");
+            prefBindingSource.DataSource = MasterTableRepository.GetMasterTable("pref");
+            jobBindingSource.DataSource = MasterTableRepository.GetMasterTable("job");
+        }
 
         /// <summary>
         /// 検索ボタンをクリック
@@ -42,7 +53,9 @@ namespace EccubeManager
         #endregion
 
         #region インプリメンテーション
-        
+
         #endregion
+
+
     }
 }

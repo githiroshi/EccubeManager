@@ -137,6 +137,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\EccubeManager.Model.Customer.datasource" />
     <None Include="Properties\DataSources\EccubeManager.Model.Master.datasource" />
     <None Include="Properties\DataSources\EccubeManager.Model.Order.datasource" />
     <None Include="Properties\Settings.settings">
