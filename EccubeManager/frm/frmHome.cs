@@ -124,7 +124,7 @@ namespace EccubeManager
             //フォームが表示されているかの判定  
             if (this._OrderForm == null || this._OrderForm.IsDisposed)
             {
-                IOrderService orderService = new OrderService();
+                IOrderService orderService = new PostgresOrderService();
                 this._OrderForm = new frmOrderList(orderService);
             }
 

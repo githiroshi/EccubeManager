@@ -34,6 +34,7 @@ namespace EccubeManager
         /// <param name="e"></param>
         private void frmCustomerList_Load(object sender, EventArgs e)
         {
+            //コンボボックス用のマスターデータを取得
             sexBindingSource.DataSource = MasterTableRepository.GetMasterTable("sex");
             prefBindingSource.DataSource = MasterTableRepository.GetMasterTable("pref");
             jobBindingSource.DataSource = MasterTableRepository.GetMasterTable("job");

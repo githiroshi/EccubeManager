@@ -18,8 +18,16 @@ namespace EccubeManager
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            IOrderService orderService = new OrderService();
+            IOrderService orderService = null;
             ICustomerService customerService = new CustomerService();
+            if (Properties.Settings.Default.IsPostgres)
+            {
+                orderService = new PostgresOrderService();
+            }
+            else
+            {
+                orderService = new MysqlOrderService();
+            }
 
             Application.Run(new frmHome(orderService, customerService));
         }

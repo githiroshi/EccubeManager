@@ -70,6 +70,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblUpdateTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SalesGroupBox.SuspendLayout();
             this.YesterdayGroupBox.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -84,6 +87,9 @@
             this.ShopInfoGroupBox.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // SalesGroupBox
@@ -91,7 +97,7 @@
             this.SalesGroupBox.Controls.Add(this.YesterdayGroupBox);
             this.SalesGroupBox.Controls.Add(this.TodayGroupBox);
             this.SalesGroupBox.Controls.Add(this.MonthGroupBox);
-            this.SalesGroupBox.Location = new System.Drawing.Point(303, 56);
+            this.SalesGroupBox.Location = new System.Drawing.Point(114, 10);
             this.SalesGroupBox.Name = "SalesGroupBox";
             this.SalesGroupBox.Size = new System.Drawing.Size(208, 257);
             this.SalesGroupBox.TabIndex = 0;
@@ -305,7 +311,7 @@
             // MenuGroupBox
             // 
             this.MenuGroupBox.Controls.Add(this.tableLayoutPanel2);
-            this.MenuGroupBox.Location = new System.Drawing.Point(13, 13);
+            this.MenuGroupBox.Location = new System.Drawing.Point(12, 10);
             this.MenuGroupBox.Name = "MenuGroupBox";
             this.MenuGroupBox.Size = new System.Drawing.Size(99, 121);
             this.MenuGroupBox.TabIndex = 1;
@@ -317,6 +323,7 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.btnCustomer, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnSettings, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.btnOrder, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 15);
@@ -354,7 +361,7 @@
             // OrderStatusGroupBox
             // 
             this.OrderStatusGroupBox.Controls.Add(this.OrderStatusPanel);
-            this.OrderStatusGroupBox.Location = new System.Drawing.Point(130, 56);
+            this.OrderStatusGroupBox.Location = new System.Drawing.Point(328, 10);
             this.OrderStatusGroupBox.Name = "OrderStatusGroupBox";
             this.OrderStatusGroupBox.Size = new System.Drawing.Size(167, 121);
             this.OrderStatusGroupBox.TabIndex = 0;
@@ -468,9 +475,9 @@
             // ShopInfoGroupBox
             // 
             this.ShopInfoGroupBox.Controls.Add(this.tableLayoutPanel5);
-            this.ShopInfoGroupBox.Location = new System.Drawing.Point(517, 56);
+            this.ShopInfoGroupBox.Location = new System.Drawing.Point(501, 15);
             this.ShopInfoGroupBox.Name = "ShopInfoGroupBox";
-            this.ShopInfoGroupBox.Size = new System.Drawing.Size(167, 53);
+            this.ShopInfoGroupBox.Size = new System.Drawing.Size(145, 53);
             this.ShopInfoGroupBox.TabIndex = 0;
             this.ShopInfoGroupBox.TabStop = false;
             this.ShopInfoGroupBox.Text = "ショップ状況";
@@ -478,8 +485,8 @@
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel5.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.lblCustomerCount, 1, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -487,14 +494,14 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(161, 35);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(139, 35);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(30, 11);
+            this.label9.Location = new System.Drawing.Point(5, 11);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 12);
             this.label9.TabIndex = 0;
@@ -504,7 +511,7 @@
             // 
             this.lblCustomerCount.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCustomerCount.AutoSize = true;
-            this.lblCustomerCount.Location = new System.Drawing.Point(83, 11);
+            this.lblCustomerCount.Location = new System.Drawing.Point(58, 11);
             this.lblCustomerCount.Name = "lblCustomerCount";
             this.lblCustomerCount.Size = new System.Drawing.Size(49, 12);
             this.lblCustomerCount.TabIndex = 0;
@@ -512,9 +519,9 @@
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(13, 246);
+            this.btnSettings.Location = new System.Drawing.Point(3, 78);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(75, 23);
+            this.btnSettings.Size = new System.Drawing.Size(87, 22);
             this.btnSettings.TabIndex = 2;
             this.btnSettings.Text = "設定";
             this.btnSettings.UseVisualStyleBackColor = true;
@@ -540,13 +547,37 @@
             this.lblUpdateTime.Size = new System.Drawing.Size(55, 17);
             this.lblUpdateTime.Text = "更新時刻";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Location = new System.Drawing.Point(329, 138);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(227, 129);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "直近の受注";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 15);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 21;
+            this.dataGridView1.Size = new System.Drawing.Size(221, 111);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // orderBindingSource
+            // 
+            this.orderBindingSource.DataSource = typeof(EccubeManager.Model.Order);
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 406);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.MenuGroupBox);
             this.Controls.Add(this.ShopInfoGroupBox);
             this.Controls.Add(this.OrderStatusGroupBox);
@@ -574,6 +605,9 @@
             this.tableLayoutPanel5.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,5 +656,8 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblUpdateTime;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource orderBindingSource;
     }
 }

@@ -63,7 +63,6 @@ namespace EccubeManager.frm
             //メッセージボックスを表示する
             DialogResult result = MessageBox.Show("設定を保存しますがよろしいですか？", "質問", MessageBoxButtons.YesNo);
 
-            //何が選択されたか調べる
             if (result == DialogResult.Yes)
             {
                 //接続情報を取得

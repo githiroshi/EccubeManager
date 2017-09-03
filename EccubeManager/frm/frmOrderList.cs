@@ -36,6 +36,7 @@ namespace EccubeManager.frm
         /// <param name="e"></param>
         private void frmOrderList_Load(object sender, EventArgs e)
         {
+            //コンボボックス用のマスターデータを取得
             statusBindingSource.DataSource = MasterTableRepository.GetMasterTable("order_status");
             prefBindingSource.DataSource = MasterTableRepository.GetMasterTable("pref");
             jobBindingSource.DataSource = MasterTableRepository.GetMasterTable("job");
