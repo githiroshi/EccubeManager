@@ -142,6 +142,7 @@
     <None Include="Properties\DataSources\EccubeManager.Model.Customer.datasource" />
     <None Include="Properties\DataSources\EccubeManager.Model.Master.datasource" />
     <None Include="Properties\DataSources\EccubeManager.Model.Order.datasource" />
+    <None Include="Properties\DataSources\EccubeManager.Model.OrderDetail.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

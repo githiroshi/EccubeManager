@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SalesGroupBox = new System.Windows.Forms.GroupBox();
             this.YesterdayGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -51,6 +53,7 @@
             this.MenuGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCustomer = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Button();
             this.OrderStatusGroupBox = new System.Windows.Forms.GroupBox();
             this.OrderStatusPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -66,13 +69,16 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.lblCustomerCount = new System.Windows.Forms.Label();
-            this.btnSettings = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblUpdateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.OrderDetailGridView = new System.Windows.Forms.DataGridView();
+            this.orderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.商品ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SalesGroupBox.SuspendLayout();
             this.YesterdayGroupBox.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -88,8 +94,8 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderDetailGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderDetailBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // SalesGroupBox
@@ -347,6 +353,16 @@
             this.btnCustomer.UseVisualStyleBackColor = true;
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
+            // btnSettings
+            // 
+            this.btnSettings.Location = new System.Drawing.Point(3, 78);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(87, 22);
+            this.btnSettings.TabIndex = 2;
+            this.btnSettings.Text = "設定";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
             // btnOrder
             // 
             this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -475,57 +491,49 @@
             // ShopInfoGroupBox
             // 
             this.ShopInfoGroupBox.Controls.Add(this.tableLayoutPanel5);
-            this.ShopInfoGroupBox.Location = new System.Drawing.Point(501, 15);
+            this.ShopInfoGroupBox.Location = new System.Drawing.Point(12, 134);
             this.ShopInfoGroupBox.Name = "ShopInfoGroupBox";
-            this.ShopInfoGroupBox.Size = new System.Drawing.Size(145, 53);
+            this.ShopInfoGroupBox.Size = new System.Drawing.Size(96, 74);
             this.ShopInfoGroupBox.TabIndex = 0;
             this.ShopInfoGroupBox.TabStop = false;
             this.ShopInfoGroupBox.Text = "ショップ状況";
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.label9, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.lblCustomerCount, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.lblCustomerCount, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 15);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(139, 35);
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(90, 56);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // label9
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(5, 11);
+            this.label9.Location = new System.Drawing.Point(3, 6);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 12);
+            this.label9.Size = new System.Drawing.Size(84, 12);
             this.label9.TabIndex = 0;
-            this.label9.Text = "会員数：";
+            this.label9.Text = "会員数";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCustomerCount
             // 
-            this.lblCustomerCount.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCustomerCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCustomerCount.AutoSize = true;
-            this.lblCustomerCount.Location = new System.Drawing.Point(58, 11);
+            this.lblCustomerCount.Location = new System.Drawing.Point(3, 34);
             this.lblCustomerCount.Name = "lblCustomerCount";
-            this.lblCustomerCount.Size = new System.Drawing.Size(49, 12);
+            this.lblCustomerCount.Size = new System.Drawing.Size(84, 12);
             this.lblCustomerCount.TabIndex = 0;
             this.lblCustomerCount.Text = "10,000人";
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.Location = new System.Drawing.Point(3, 78);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(87, 22);
-            this.btnSettings.TabIndex = 2;
-            this.btnSettings.Text = "設定";
-            this.btnSettings.UseVisualStyleBackColor = true;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            this.lblCustomerCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timer1
             // 
@@ -549,27 +557,75 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dataGridView1);
-            this.groupBox1.Location = new System.Drawing.Point(329, 138);
+            this.groupBox1.Controls.Add(this.OrderDetailGridView);
+            this.groupBox1.Location = new System.Drawing.Point(114, 273);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(227, 129);
+            this.groupBox1.Size = new System.Drawing.Size(459, 108);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "直近の受注";
             // 
-            // dataGridView1
+            // OrderDetailGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 15);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 21;
-            this.dataGridView1.Size = new System.Drawing.Size(221, 111);
-            this.dataGridView1.TabIndex = 0;
+            this.OrderDetailGridView.AllowUserToAddRows = false;
+            this.OrderDetailGridView.AllowUserToDeleteRows = false;
+            this.OrderDetailGridView.AutoGenerateColumns = false;
+            this.OrderDetailGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.OrderDetailGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.商品ID,
+            this.productnameDataGridViewTextBoxColumn,
+            this.priceDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn});
+            this.OrderDetailGridView.DataSource = this.orderDetailBindingSource;
+            this.OrderDetailGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OrderDetailGridView.Location = new System.Drawing.Point(3, 15);
+            this.OrderDetailGridView.Name = "OrderDetailGridView";
+            this.OrderDetailGridView.ReadOnly = true;
+            this.OrderDetailGridView.RowHeadersVisible = false;
+            this.OrderDetailGridView.RowTemplate.Height = 21;
+            this.OrderDetailGridView.Size = new System.Drawing.Size(453, 90);
+            this.OrderDetailGridView.TabIndex = 0;
             // 
-            // orderBindingSource
+            // orderDetailBindingSource
             // 
-            this.orderBindingSource.DataSource = typeof(EccubeManager.Model.Order);
+            this.orderDetailBindingSource.DataSource = typeof(EccubeManager.Model.OrderDetail);
+            // 
+            // 商品ID
+            // 
+            this.商品ID.DataPropertyName = "product_id";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.商品ID.DefaultCellStyle = dataGridViewCellStyle1;
+            this.商品ID.HeaderText = "商品ID";
+            this.商品ID.Name = "商品ID";
+            this.商品ID.ReadOnly = true;
+            // 
+            // productnameDataGridViewTextBoxColumn
+            // 
+            this.productnameDataGridViewTextBoxColumn.DataPropertyName = "product_name";
+            this.productnameDataGridViewTextBoxColumn.HeaderText = "商品名";
+            this.productnameDataGridViewTextBoxColumn.Name = "productnameDataGridViewTextBoxColumn";
+            this.productnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productnameDataGridViewTextBoxColumn.Width = 160;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "C0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.priceDataGridViewTextBoxColumn.HeaderText = "金額";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.priceDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "数量";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            this.quantityDataGridViewTextBoxColumn.Width = 90;
             // 
             // frmHome
             // 
@@ -606,8 +662,8 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrderDetailGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderDetailBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -657,7 +713,11 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblUpdateTime;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource orderBindingSource;
+        private System.Windows.Forms.DataGridView OrderDetailGridView;
+        private System.Windows.Forms.BindingSource orderDetailBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 商品ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
     }
 }
