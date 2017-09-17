@@ -74,11 +74,11 @@
             this.lblUpdateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.OrderDetailGridView = new System.Windows.Forms.DataGridView();
-            this.orderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.商品ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SalesGroupBox.SuspendLayout();
             this.YesterdayGroupBox.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -317,7 +317,7 @@
             // MenuGroupBox
             // 
             this.MenuGroupBox.Controls.Add(this.tableLayoutPanel2);
-            this.MenuGroupBox.Location = new System.Drawing.Point(12, 10);
+            this.MenuGroupBox.Location = new System.Drawing.Point(9, 89);
             this.MenuGroupBox.Name = "MenuGroupBox";
             this.MenuGroupBox.Size = new System.Drawing.Size(99, 121);
             this.MenuGroupBox.TabIndex = 1;
@@ -491,9 +491,9 @@
             // ShopInfoGroupBox
             // 
             this.ShopInfoGroupBox.Controls.Add(this.tableLayoutPanel5);
-            this.ShopInfoGroupBox.Location = new System.Drawing.Point(12, 134);
+            this.ShopInfoGroupBox.Location = new System.Drawing.Point(9, 12);
             this.ShopInfoGroupBox.Name = "ShopInfoGroupBox";
-            this.ShopInfoGroupBox.Size = new System.Drawing.Size(96, 74);
+            this.ShopInfoGroupBox.Size = new System.Drawing.Size(99, 74);
             this.ShopInfoGroupBox.TabIndex = 0;
             this.ShopInfoGroupBox.TabStop = false;
             this.ShopInfoGroupBox.Text = "ショップ状況";
@@ -510,7 +510,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(90, 56);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(93, 56);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // label9
@@ -519,7 +519,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(3, 6);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(84, 12);
+            this.label9.Size = new System.Drawing.Size(87, 12);
             this.label9.TabIndex = 0;
             this.label9.Text = "会員数";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -530,7 +530,7 @@
             this.lblCustomerCount.AutoSize = true;
             this.lblCustomerCount.Location = new System.Drawing.Point(3, 34);
             this.lblCustomerCount.Name = "lblCustomerCount";
-            this.lblCustomerCount.Size = new System.Drawing.Size(84, 12);
+            this.lblCustomerCount.Size = new System.Drawing.Size(87, 12);
             this.lblCustomerCount.TabIndex = 0;
             this.lblCustomerCount.Text = "10,000人";
             this.lblCustomerCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -586,10 +586,6 @@
             this.OrderDetailGridView.Size = new System.Drawing.Size(453, 90);
             this.OrderDetailGridView.TabIndex = 0;
             // 
-            // orderDetailBindingSource
-            // 
-            this.orderDetailBindingSource.DataSource = typeof(EccubeManager.Model.OrderDetail);
-            // 
             // 商品ID
             // 
             this.商品ID.DataPropertyName = "product_id";
@@ -626,6 +622,10 @@
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
             this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
             this.quantityDataGridViewTextBoxColumn.Width = 90;
+            // 
+            // orderDetailBindingSource
+            // 
+            this.orderDetailBindingSource.DataSource = typeof(EccubeManager.Model.OrderDetail);
             // 
             // frmHome
             // 
