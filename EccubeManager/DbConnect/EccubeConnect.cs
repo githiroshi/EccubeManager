@@ -7,6 +7,7 @@ using System.Data;
 using Dapper;
 using System.Configuration;
 using EccubeManager.Model;
+using System.Windows.Forms;
 
 namespace EccubeManager
 {
@@ -50,13 +51,17 @@ namespace EccubeManager
             if (Properties.Settings.Default.IsPostgres == true)
             {
                 DbString = "Postgres";
-            }       
-             //DB接続
+            }
+
+#if DEBUG
+            DbString = "HerokuPostgres";
+#endif
+            //DB接続
             Connection = dbFactory.DbFactory(DbString);
         }
-        #endregion
+#endregion
 
-        #region method
+#region method
         /// <summary>
         /// コネクションオープン
         /// </summary>
@@ -64,7 +69,15 @@ namespace EccubeManager
         {
             if (Connection != null && !IsConnected)
             {
-                Connection.Open();
+                try
+                {
+                    Connection.Open();
+                }
+                catch (Exception ex)
+                {
+                    var msg = string.Format("コネクションのオープンに失敗しました。{0}設定を確認してください。{1}エラー：{2}", Environment.NewLine, Environment.NewLine, ex.Message);
+                    MessageBox.Show(msg);
+                }
             }
         }
 
@@ -153,6 +166,6 @@ namespace EccubeManager
         public void Dispose()
         {
         }
-        #endregion
+#endregion
     }
 }

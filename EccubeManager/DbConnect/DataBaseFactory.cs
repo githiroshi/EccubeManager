@@ -14,20 +14,22 @@ namespace EccubeManager
     {
         public IDbConnection DbFactory(string dbName)
         {
+            var conectionString = "Server={0};Port={1};Database={2};UserId={3};Password={4};";
+
             switch (dbName)
             {
                 case "Postgres":
-                    var PostgreSqlConnection = string.Format("Server={0};Port={1};Database={2};UserId={3};Password={4};",
+                    var PostgreSqlConnection = string.Format(conectionString,
                                                 Properties.Settings.Default.PostgresServer
                                                 , Properties.Settings.Default.PostgresPort
                                                 , Properties.Settings.Default.PostgresDatabase
                                                 , Properties.Settings.Default.PostgresUserId
                                                 , Properties.Settings.Default.PostgresPassword);
 
-                    return  new NpgsqlConnection(PostgreSqlConnection);
+                    return new NpgsqlConnection(PostgreSqlConnection);
 
                 case "MySQL":
-                    var MySQLConnection = string.Format("Server={0};Port={1};Database={2};UserId={3};Password={4};",
+                    var MySQLConnection = string.Format(conectionString,
                                                 Properties.Settings.Default.MysqlServer
                                                 , Properties.Settings.Default.MysqlPort
                                                 , Properties.Settings.Default.MysqlDatabase
@@ -35,9 +37,21 @@ namespace EccubeManager
                                                 , Properties.Settings.Default.MysqlPassword);
 
                     return new MySqlConnection(MySQLConnection);
+
+                    //Debug
+                case "HerokuPostgres":
+                    var HerokuPostgreSqlConnection = string.Format("User ID={0};Password={1};Host={2};Port={3};Database={4};Pooling=true;Use SSL Stream=True;SSL Mode=Require;TrustServerCertificate=True;",
+                                                Properties.Settings.Default.PostgresUserId
+                                                , Properties.Settings.Default.PostgresPassword
+                                                , Properties.Settings.Default.PostgresServer
+                                                , Properties.Settings.Default.PostgresPort
+                                                , Properties.Settings.Default.PostgresDatabase);
+
+                    return new NpgsqlConnection(HerokuPostgreSqlConnection);
             }
             return null;
 
+    
         }
     }
 }
