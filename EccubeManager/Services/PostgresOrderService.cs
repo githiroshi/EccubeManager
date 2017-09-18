@@ -67,7 +67,7 @@ namespace EccubeManager.Services
                     var sql = new StringBuilder();
                     sql.AppendLine(" SELECT * FROM dtb_order_detail ");
                     sql.AppendLine(" INNER JOIN dtb_order ON dtb_order.order_id = dtb_order_detail.order_id ");
-                    sql.AppendLine(" WHERE DATE(dtb_order.order_date) = now() ");//本日データ
+                    sql.AppendLine(" WHERE date_trunc('day', dtb_order.order_date) = date_trunc('day', now()) ");//本日データ
                     sql.AppendLine(" ORDER BY order_detail_id DESC");
 
                     // データ取得
