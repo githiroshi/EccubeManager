@@ -34,10 +34,18 @@ namespace EccubeManager
         /// <param name="e"></param>
         private void frmCustomerList_Load(object sender, EventArgs e)
         {
-            //コンボボックス用のマスターデータを取得
-            sexBindingSource.DataSource = MasterTableRepository.GetMasterTable("sex");
-            prefBindingSource.DataSource = MasterTableRepository.GetMasterTable("pref");
-            jobBindingSource.DataSource = MasterTableRepository.GetMasterTable("job");
+            try
+            {
+                //コンボボックス用のマスターデータを取得
+                sexBindingSource.DataSource = MasterTableRepository.GetMasterTable("sex");
+                prefBindingSource.DataSource = MasterTableRepository.GetMasterTable("pref");
+                jobBindingSource.DataSource = MasterTableRepository.GetMasterTable("job");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         /// <summary>
@@ -47,8 +55,16 @@ namespace EccubeManager
         /// <param name="e"></param>
         private void SearchButton_Click(object sender, System.EventArgs e)
         {
-            //データを取得
-            CustomerListGridView.DataSource = _CustomerService.GetCustomer();
+            try
+            {
+                //データを取得
+                CustomerListGridView.DataSource = _CustomerService.GetCustomer();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         #endregion

@@ -42,7 +42,7 @@ namespace EccubeManager
         private async void frmHome_Load(object sender, EventArgs e)
         {
             //現在の状況を表示
-            await SetCurrentInfo();
+            //await SetCurrentInfo();
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace EccubeManager
         /// <param name="e"></param>
         private async void timer1_Tick(object sender, EventArgs e)
         {
-            await this.SetCurrentInfo();
+            //await this.SetCurrentInfo();
         }
 
         #endregion

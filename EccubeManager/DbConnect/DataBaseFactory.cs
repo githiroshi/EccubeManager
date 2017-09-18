@@ -36,7 +36,7 @@ namespace EccubeManager
 
                     return new MySqlConnection(MySQLConnection);
             }
-            return new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PostgreSqlConnection"].ConnectionString);
+            return null;
 
         }
     }

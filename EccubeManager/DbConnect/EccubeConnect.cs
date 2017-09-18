@@ -62,7 +62,7 @@ namespace EccubeManager
         /// </summary>
         public void ConnectionOpen()
         {
-            if (!IsConnected)
+            if (Connection != null && !IsConnected)
             {
                 Connection.Open();
             }
