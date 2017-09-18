@@ -21,17 +21,25 @@ namespace EccubeManager.Services
             {
                 using (var connection = new EccubeConnect())
                 {
-                    //コネクションオープン
-                    connection.ConnectionOpen();
+                    try
+                    {
+                        //コネクションオープン
+                        connection.ConnectionOpen();
 
-                    var sql = new StringBuilder();
-                    sql.AppendLine(" SELECT * FROM dtb_order ");
-                    sql.AppendLine(" WHERE order_date >= DATE_ADD(NOW(), INTERVAL -1 MONTH) ");//直近1ヶ月前を取得
-                    sql.AppendLine(" ORDER BY order_id ASC");
+                        var sql = new StringBuilder();
+                        sql.AppendLine(" SELECT * FROM dtb_order ");
+                        sql.AppendLine(" WHERE order_date >= DATE_ADD(NOW(), INTERVAL -1 MONTH) ");//直近1ヶ月前を取得
+                        sql.AppendLine(" ORDER BY order_id ASC");
 
-                    // データ取得
-                    order = connection.Select<Order>(sql.ToString());
-                    return true;
+                        // データ取得
+                        order = connection.Select<Order>(sql.ToString());
+                        return true;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+
                 }
             });
 

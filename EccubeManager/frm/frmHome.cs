@@ -25,9 +25,6 @@ namespace EccubeManager
         {
             InitializeComponent();
 
-            timer1.Interval = 10000;
-            timer1.Enabled = true; // timer.Start()と同じ
-
             this._OrderService = orderService;
             this._CustomerService = customerService;
         }
@@ -41,8 +38,15 @@ namespace EccubeManager
         /// <param name="e"></param>
         private async void frmHome_Load(object sender, EventArgs e)
         {
-            //現在の状況を表示
-            //await SetCurrentInfo();
+            try
+            {
+                //現在の状況を表示
+                await SetCurrentInfo();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -85,7 +89,15 @@ namespace EccubeManager
         /// <param name="e"></param>
         private async void timer1_Tick(object sender, EventArgs e)
         {
-            //await this.SetCurrentInfo();
+            try
+            {
+                //現在の状況を表示
+                await SetCurrentInfo();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         #endregion

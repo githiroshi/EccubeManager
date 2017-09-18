@@ -36,10 +36,18 @@ namespace EccubeManager.frm
         /// <param name="e"></param>
         private void frmOrderList_Load(object sender, EventArgs e)
         {
-            //コンボボックス用のマスターデータを取得
-            statusBindingSource.DataSource = MasterTableRepository.GetMasterTable("order_status");
-            prefBindingSource.DataSource = MasterTableRepository.GetMasterTable("pref");
-            jobBindingSource.DataSource = MasterTableRepository.GetMasterTable("job");
+            try
+            {
+                //コンボボックス用のマスターデータを取得
+                statusBindingSource.DataSource = MasterTableRepository.GetMasterTable("order_status");
+                prefBindingSource.DataSource = MasterTableRepository.GetMasterTable("pref");
+                jobBindingSource.DataSource = MasterTableRepository.GetMasterTable("job");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         /// <summary>
@@ -49,9 +57,17 @@ namespace EccubeManager.frm
         /// <param name="e"></param>
         private async void SearchButton_Click(object sender, EventArgs e)
         {
-            //受注情報を非同期で取得
-            orderBindingSource.DataSource = await _OrderService.GetOrderAsync();
-            OrderListGridView.DataSource = orderBindingSource;
+            try
+            {
+                //受注情報を非同期で取得
+                orderBindingSource.DataSource = await _OrderService.GetOrderAsync();
+                OrderListGridView.DataSource = orderBindingSource;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         #endregion

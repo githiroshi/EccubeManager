@@ -61,12 +61,20 @@ namespace EccubeManager.frm
         private void btnRegist_Click(object sender, EventArgs e)
         {
             //メッセージボックスを表示する
-            DialogResult result = MessageBox.Show("設定を保存しますがよろしいですか？", "質問", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("設定を保存しますがよろしいですか？" + 
+                                                   Environment.NewLine + 
+                                                   "変更後アプリケーションは終了します。", "注意", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
-                //接続情報を取得
+                //接続情報を保存
                 SetSettings();
+
+                //メッセージボックスを表示する
+                result = MessageBox.Show("設定を変更しました。" + 
+                                          Environment.NewLine + 
+                                          "アプリケーションを再起動してください。", "設定", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Exit();
             }
         }
 

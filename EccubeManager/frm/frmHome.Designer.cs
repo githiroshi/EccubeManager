@@ -69,7 +69,6 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.lblCustomerCount = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblUpdateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -535,10 +534,6 @@
             this.lblCustomerCount.Text = "10,000人";
             this.lblCustomerCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -709,7 +704,6 @@
         private System.Windows.Forms.Label lblCustomerCount;
         private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Button btnSettings;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblUpdateTime;
         private System.Windows.Forms.GroupBox groupBox1;
