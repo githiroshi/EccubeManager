@@ -53,9 +53,30 @@ namespace EccubeManager.Services
         /// 受注明細データを非同期で取得
         /// </summary>
         /// <returns></returns>
-        public Task<IList<OrderDetail>> GetOrderDetailAsync()
+        public async Task<IList<OrderDetail>> GetOrderDetailAsync()
         {
-            throw new NotImplementedException();
+            IList<OrderDetail> order = new List<OrderDetail>();
+
+            var task = await Task.Run(() =>
+            {
+                using (var connection = new EccubeConnect())
+                {
+                    //コネクションオープン
+                    connection.ConnectionOpen();
+
+                    var sql = new StringBuilder();
+                    sql.AppendLine(" SELECT * FROM dtb_order_detail ");
+                    sql.AppendLine(" INNER JOIN dtb_order ON dtb_order.order_id = dtb_order_detail.order_id ");
+                    sql.AppendLine(" WHERE DATE(dtb_order.order_date) = now() ");//本日データ
+                    sql.AppendLine(" ORDER BY order_detail_id DESC");
+
+                    // データ取得
+                    order = connection.Select<OrderDetail>(sql.ToString());
+                    return true;
+                }
+            });
+
+            return order;
         }
     }
 }

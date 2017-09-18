@@ -12,10 +12,10 @@ namespace EccubeManager.Model
         public int customer_id { get; set; }
 
         [System.ComponentModel.DisplayName("性別")]
-        public int sex { get; set; }
+        public int? sex { get; set; }
 
         [System.ComponentModel.DisplayName("職業")]
-        public int job { get; set; }
+        public int? job { get; set; }
 
         [System.ComponentModel.DisplayName("都道府県")]
         public int pref { get; set; }

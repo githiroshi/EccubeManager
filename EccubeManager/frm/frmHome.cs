@@ -201,8 +201,7 @@ namespace EccubeManager
             SetOrderStatus(order);
             //売り上げ状況をセット
             SetSales(order, dtNow);
-
-
+            
             orderDetailBindingSource.DataSource = await _OrderService.GetOrderDetailAsync();
 
             //会員数をセット
