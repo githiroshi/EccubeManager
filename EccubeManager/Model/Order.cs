@@ -21,7 +21,7 @@ namespace EccubeManager.Model
         public int order_pref { get; set; }
 
         [System.ComponentModel.DisplayName("職業")]
-        public int order_job { get; set; }
+        public int? order_job { get; set; }
 
         [System.ComponentModel.DisplayName("支払ID")]
         public int payment_id { get; set; }
